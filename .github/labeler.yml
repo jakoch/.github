@@ -1,0 +1,8 @@
+docs:
+  - docs/**
+  - README.*
+
+automation:
+  - .gitattributes
+  - .github/**
+  - .gitignore
