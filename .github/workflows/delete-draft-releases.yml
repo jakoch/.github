@@ -1,0 +1,35 @@
+name: "Delete Draft Releases"
+
+# You can manually run this workflow.
+on: [workflow_dispatch]
+
+jobs:
+  delete-draft-releases:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Delete all draft releases"
+        uses: actions/github-script@v7 # https://github.com/actions/github-script
+        with:
+          script: |
+            try {
+              const { data: releases } = await github.rest.repos.listReleases({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+              });
+              const draftReleases = releases.filter(release => release.draft);
+              if (draftReleases.length === 0) {
+                return core.info('❌ No draft releases found.');
+              }
+              await Promise.all(draftReleases.map(async (release) => {
+                await github.rest.repos.deleteRelease({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  release_id: release.id,
+                });
+                core.info(`✂️ Deleted draft release: ${release.name}`);
+              }));
+              core.info('✅ All draft releases have been deleted.');
+            } catch (error) {
+              core.error(`⚠️ Error deleting draft releases: ${error.message}`);
+            }

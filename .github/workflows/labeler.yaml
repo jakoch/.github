@@ -1,4 +1,6 @@
-name: 📎 "Pull Request Labeler"
+name: "📎 Pull Request Labeler"
+
+# The workflow will run on pull requests.
 on: [pull_request]
 
 permissions:
