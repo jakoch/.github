@@ -1,5 +1,29 @@
-<!-- Please remember to select the appropriate branch:
+<!-- 
+🙏 Thank you for your contribution!
 
-For bug fixes pick the oldest branch where the fix applies.
+📌 Branch Selection Reminder:
 
-For new features and everything else, use the main branch. Thank you. <3 -->
+Please remember to select the appropriate branch:
+- For bug fixes use the oldest branch where the fix applies.
+- For new features and everything else, use the main branch. 
+
+-->
+
+### What type of change is this?
+
+- [ ] Bug Fix
+- [ ] New Feature
+
+### Description:
+
+<!-- 
+Please provide a description of what this PR does. 
+Include the problem it solves or the motivation behind it.
+-->
+
+### Related Issues
+
+<!-- 
+Please link to related issue(s) with GitHub keywords (e.g. "Fixes #123").
+If none, remove this section.
+-->
